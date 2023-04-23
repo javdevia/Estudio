@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>MainActivity.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #629755; font-style: italic;}
+.s3 { color: #808080;}
+.s4 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MainActivity.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.diceroller</span>
+
+<span class="s1">import androidx.appcompat.app.AppCompatActivity</span>
+<span class="s1">import android.os.Bundle</span>
+<span class="s1">import android.widget.Button</span>
+<span class="s1">import android.widget.ImageView</span>
+<span class="s1">import android.widget.TextView</span>
+<span class="s1">import android.widget.Toast</span>
+
+<span class="s2">/**</span>
+ <span class="s2">* Esta actividad permite al usuario lanzar un dado y ver el resultado en la pantalla.</span>
+ <span class="s2">*/</span>
+
+<span class="s0">class </span><span class="s1">MainActivity : AppCompatActivity() {</span>
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreate(savedInstanceState: Bundle?) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span>
+        <span class="s1">setContentView(R.layout.activity_main)</span>
+
+        <span class="s0">val </span><span class="s1">rollButton: Button = findViewById(R.id.button)</span>
+        <span class="s1">rollButton.setOnClickListener {</span>
+
+            <span class="s1">rollButton.setOnClickListener { rollDice() }</span>
+
+        <span class="s1">}</span>
+        <span class="s3">// Tira un dado al comenzar la aplicación</span>
+        <span class="s1">rollDice()</span>
+    <span class="s1">}</span>
+
+    <span class="s2">/**</span>
+     <span class="s2">*  Tira el dado y actualiza la pantalla con su resultado</span>
+     <span class="s2">*/</span>
+
+    <span class="s1">private </span><span class="s0">fun </span><span class="s1">rollDice() {</span>
+        <span class="s3">// Crea el primer dado de los lados indicados y lo lanza</span>
+        <span class="s0">val </span><span class="s1">dice = Dice(</span><span class="s4">4</span><span class="s1">)</span>
+        <span class="s0">val </span><span class="s1">diceRoll = dice.roll()</span>
+
+        <span class="s3">// Busca la imagen en la pantalla</span>
+        <span class="s0">val </span><span class="s1">diceImage: ImageView = findViewById(R.id.imageView)</span>
+
+        <span class="s3">// Selecciona la imagen a utilizar para el resultado</span>
+        <span class="s0">val </span><span class="s1">drawableResource = </span><span class="s0">when </span><span class="s1">(diceRoll){</span>
+            <span class="s4">1 </span><span class="s1">-&gt; R.drawable.ruleta_1</span>
+            <span class="s4">2 </span><span class="s1">-&gt; R.drawable.ruleta_2</span>
+            <span class="s4">3 </span><span class="s1">-&gt; R.drawable.ruleta_3</span>
+            <span class="s4">4 </span><span class="s1">-&gt; R.drawable.ruleta_4</span>
+            <span class="s4">5 </span><span class="s1">-&gt; R.drawable.dice_5</span>
+            <span class="s0">else </span><span class="s1">-&gt; R.drawable.dice_6</span>
+        <span class="s1">}</span>
+
+        <span class="s3">// Dibuja la imagen selccionada</span>
+        <span class="s1">diceImage.setImageResource(drawableResource)</span>
+
+        <span class="s3">// Actualiza el valor de la imagen</span>
+        <span class="s1">diceImage.contentDescription = diceRoll.toString()</span>
+
+    <span class="s1">}</span>
+<span class="s1">}</span>
+
+<span class="s0">class </span><span class="s1">Dice(private </span><span class="s0">val </span><span class="s1">numSides: Int) {</span>
+
+    <span class="s0">fun </span><span class="s1">roll(): Int {</span>
+        <span class="s0">return </span><span class="s1">(</span><span class="s4">1</span><span class="s1">..numSides).random()</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>
