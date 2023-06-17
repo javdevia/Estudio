@@ -2,4 +2,9 @@
     <string name="app_name">AppYoutubeAris</string>
     <string name="write_your_name">Write your name</string>
     <string name="accept">Accept</string>
+    <string name="saludapp">SaludAPP</string>
+    <string name="imcCalculator">IMC Calculator</string>
+    <string name="menuTitle">Menu de aplicaciones</string>
+    <string name="mujer">MUJER</string>
+    <string name="hombre">HOMBRE</string>
 </resources>
