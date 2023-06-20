@@ -8,16 +8,31 @@
     android:padding="16dp"
     tools:context=".ImcCalculatorActivity">
 
+    <TextView
+        android:id="@+id/tvTitleImc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/Title_IMC"
+        android:textColor="@color/title_text"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/cvMale"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cvMale"
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/background_component_selected"
+        app:cardBackgroundColor="@color/background_component_selected"
         app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toTopOf="@id/cvHeight"
         app:layout_constraintEnd_toStartOf="@+id/cvFemale"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/tvTitleImc">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -47,11 +62,13 @@
         android:id="@+id/cvFemale"
         android:layout_width="0dp"
         android:layout_height="150dp"
-        android:backgroundTint="@color/background_component"
+        android:layout_marginStart="8dp"
+        app:cardBackgroundColor="@color/background_component"
         app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/cvMale"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/cvMale"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="@id/cvMale">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -84,9 +101,10 @@
         android:id="@+id/cvHeight"
         android:layout_width="0dp"
         android:layout_height="150dp"
-        android:layout_marginVertical="16dp"
+        android:layout_margin="8dp"
         android:backgroundTint="@color/background_component"
         app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toTopOf="@id/cvWeight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cvMale">
@@ -94,6 +112,7 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginVertical="8dp"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -111,18 +130,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="4dp"
-                android:text="VALOR"
+                android:text="100cm"
                 android:textColor="@color/white"
                 android:textSize="32sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <com.google.android.material.slider.RangeSlider
+                android:id="@+id/rsHight"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="BARRA"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:stepSize="1"
+                android:valueFrom="100"
+                android:valueTo="200"
+
+                />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.cardview.widget.CardView>
@@ -131,10 +153,10 @@
         android:id="@+id/cvWeight"
         android:layout_width="0dp"
         android:layout_height="150dp"
-        android:layout_marginVertical="16dp"
         android:layout_marginEnd="8dp"
         android:backgroundTint="@color/background_component"
         app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toTopOf="@id/btnCalculate"
         app:layout_constraintEnd_toStartOf="@id/cvAge"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cvHeight">
@@ -164,13 +186,34 @@
                 android:textSize="32sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="BOTONES"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabWeightSubtract"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:fabCustomSize="35dp"
+                    android:src="@drawable/substract_symbol"
+                    app:backgroundTint="@color/purple_500"
+                    app:maxImageSize="25dp"
+                    app:tint="@color/white" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabWeightAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/add_symbol"
+                    app:backgroundTint="@color/purple_500"
+                    app:fabCustomSize="35dp"
+                    app:maxImageSize="25dp"
+                    app:tint="@color/white" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.cardview.widget.CardView>
@@ -179,13 +222,13 @@
         android:id="@+id/cvAge"
         android:layout_width="0dp"
         android:layout_height="150dp"
-        android:layout_marginVertical="16dp"
         android:layout_marginStart="8dp"
         android:backgroundTint="@color/background_component"
         app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/cvWeight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/cvWeight"
-        app:layout_constraintTop_toBottomOf="@id/cvHeight">
+        app:layout_constraintTop_toTopOf="@id/cvWeight">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -212,13 +255,34 @@
                 android:textSize="32sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="BOTONES"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabAgeSubstract"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fabCustomSize="35dp"
+                    android:layout_marginEnd="16dp"
+                    android:src="@drawable/substract_symbol"
+                    app:backgroundTint="@color/purple_500"
+                    app:maxImageSize="25dp"
+                    app:tint="@color/white" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabAgeAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/add_symbol"
+                    app:backgroundTint="@color/purple_500"
+                    app:fabCustomSize="35dp"
+                    app:maxImageSize="25dp"
+                    app:tint="@color/white" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.cardview.widget.CardView>
@@ -227,12 +291,13 @@
         android:id="@+id/btnCalculate"
         android:layout_width="0dp"
         android:layout_height="60dp"
+        android:layout_marginTop="32dp"
         android:backgroundTint="@color/background_button"
         android:text="@string/calculate"
         android:textAllCaps="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@id/cvWeight" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

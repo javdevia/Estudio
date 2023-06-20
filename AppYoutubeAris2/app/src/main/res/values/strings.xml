@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">AppYoutubeAris</string>
-    <string name="write_your_name">Write your name</string>
-    <string name="accept">Acceptar</string>
+    <string name="write_your_name">Escribe tu nombre</string>
+    <string name="accept">Aceptar</string>
     <string name="saludapp">SaludAPP</string>
     <string name="imcCalculator">IMC Calculator</string>
     <string name="menuTitle">Menu de aplicaciones</string>
@@ -11,4 +11,5 @@
     <string name="weight">Peso</string>
     <string name="calculate">Calcular</string>
     <string name="age">Edad</string>
+    <string name="Title_IMC">Calculadora de IMC</string>
 </resources>
