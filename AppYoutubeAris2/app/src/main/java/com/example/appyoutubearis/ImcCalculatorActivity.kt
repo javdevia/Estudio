@@ -1,7 +1,9 @@
 package com.example.appyoutubearis
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
@@ -10,12 +12,15 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.slider.RangeSlider
 import java.text.DecimalFormat
 
+
 class ImcCalculatorActivity : AppCompatActivity() {
 
     private var isMaleSelected: Boolean = true
     private var isFemaleSelected: Boolean = false
-    private var weight: Int = 60
-    private var age: Int = 25
+    private var actualHeight: Int = 100
+    private var actualWeight: Int = 60
+    private var actualAge: Int = 25
+
 
     private lateinit var cvMale: CardView
 
@@ -32,6 +37,11 @@ class ImcCalculatorActivity : AppCompatActivity() {
     private lateinit var fabAgeAdd: FloatingActionButton
     private lateinit var tvAge: TextView
 
+    private lateinit var btnCalculate: Button
+
+    companion object {
+        const val IMC_KEY = "EXTRA_IMC"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +64,8 @@ class ImcCalculatorActivity : AppCompatActivity() {
         fabAgeSubtract = findViewById(R.id.fabAgeSubtract)
         fabAgeAdd = findViewById(R.id.fabAgeAdd)
         tvAge = findViewById(R.id.tvAge)
+
+        btnCalculate = findViewById(R.id.btnCalculate)
     }
 
     @SuppressLint("SetTextI18n")
@@ -75,28 +87,33 @@ class ImcCalculatorActivity : AppCompatActivity() {
             val df = DecimalFormat("#.##")
             val result = df.format(value)
             tvHeight.text = "$result cm"
+            actualHeight = result.toInt()
         }
 
         fabWeightSubtract.setOnClickListener {
-            weight -= 1
-            tvWeight.text = "$weight kg"
+            actualWeight -= 1
+            tvWeight.text = "$actualWeight kg"
         }
 
         fabWeightAdd.setOnClickListener {
-            weight += 1
-            tvWeight.text = "$weight kg"
+            actualWeight += 1
+            tvWeight.text = "$actualWeight kg"
         }
 
-         fabAgeSubtract.setOnClickListener {
-            age -= 1
-            tvAge.text = age.toString()
+        fabAgeSubtract.setOnClickListener {
+            actualAge -= 1
+            tvAge.text = actualAge.toString()
         }
 
         fabAgeAdd.setOnClickListener {
-            age += 1
-            tvAge.text = age.toString()
+            actualAge += 1
+            tvAge.text = actualAge.toString()
         }
 
+        btnCalculate.setOnClickListener {
+            val result = calculateImc()
+            showResult(result)
+        }
     }
 
     private fun setGenderColor() {
@@ -117,5 +134,17 @@ class ImcCalculatorActivity : AppCompatActivity() {
 
     private fun initUI() {
         setGenderColor()
+    }
+
+    private fun calculateImc():String {
+        val df = DecimalFormat("#.##")
+        val imc = actualWeight.toDouble() / (actualHeight.toDouble() / 100 * actualHeight.toDouble() / 100)
+        return df.format(imc)
+    }
+
+    private fun showResult(result: String) {
+        val intent2 = Intent(this, imcResultActivity::class.java)
+        intent2.putExtra(IMC_KEY, result)
+        startActivity(intent2)
     }
 }
