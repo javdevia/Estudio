@@ -136,15 +136,20 @@ class ImcCalculatorActivity : AppCompatActivity() {
         setGenderColor()
     }
 
-    private fun calculateImc():String {
+    private fun calculateImc():Double {
         val df = DecimalFormat("#.##")
-        val imc = actualWeight.toDouble() / (actualHeight.toDouble() / 100 * actualHeight.toDouble() / 100)
-        return df.format(imc)
+        val weight:Double = actualWeight.toDouble()
+        val height:Double = actualHeight.toDouble()
+
+        val imc:Double = weight/(height/100*height/100)
+        //return df.format(imc)
+        return imc
     }
 
-    private fun showResult(result: String) {
+    private fun showResult(result: Double) {
         val intent2 = Intent(this, imcResultActivity::class.java)
         intent2.putExtra(IMC_KEY, result)
         startActivity(intent2)
     }
 }
+

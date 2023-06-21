@@ -19,7 +19,7 @@ class imcResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_imc_result)
-        IMC = roundIMC()
+        IMC = getImc()
         initComponents()
         initListeners()
         initUI()
@@ -33,13 +33,14 @@ class imcResultActivity : AppCompatActivity() {
     }
 
     private fun initListeners() {
-        btnReCalculate.setOnClickListener() {
+        btnReCalculate.setOnClickListener {
         }
     }
 
     private fun initUI() {
         tvResultEvaluation.text = getEvaluation(IMC)
-        tvResultImc.text = getImc()
+        //tvResultImc.text = IMC.toString()
+        tvResultImc.text = roundIMC()
         tvResultDetail.text = getDetail(IMC)
     }
 
@@ -65,16 +66,15 @@ class imcResultActivity : AppCompatActivity() {
         return evaluation
     }
 
-    private fun getImc(): String {
-        val imcFinal = intent.extras?.getString(IMC_KEY).orEmpty()
+    private fun getImc(): Double {
+        val imcFinal = intent.extras?.getDouble(IMC_KEY) ?: 0.00
         return imcFinal
     }
 
-    private fun roundIMC():Double{
-        val roundImc = getImc().toDoubleOrNull()?:0.0
+    private fun roundIMC(): String {
+        val roundImc = getImc()
         val df = DecimalFormat("#.##")
         val roundedImcString = df.format(roundImc)
-        return roundedImcString.toDouble()
+        return roundedImcString
     }
-
 }
