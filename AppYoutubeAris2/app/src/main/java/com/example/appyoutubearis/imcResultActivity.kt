@@ -1,5 +1,6 @@
 package com.example.appyoutubearis
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -34,12 +35,13 @@ class imcResultActivity : AppCompatActivity() {
 
     private fun initListeners() {
         btnReCalculate.setOnClickListener {
+            intent = Intent(this, ImcCalculatorActivity::class.java)
+            startActivity(intent)
         }
     }
 
     private fun initUI() {
         tvResultEvaluation.text = getEvaluation(IMC)
-        //tvResultImc.text = IMC.toString()
         tvResultImc.text = roundIMC()
         tvResultDetail.text = getDetail(IMC)
     }
