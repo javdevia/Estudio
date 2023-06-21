@@ -12,4 +12,7 @@
     <string name="calculate">Calcular</string>
     <string name="age">Edad</string>
     <string name="Title_IMC">Calculadora de IMC</string>
+    <string name="IMC_result_title">Calculadora de IMC</string>
+    <string name="your_result">Tu resultado</string>
+    <string name="Recalculate">Re-calcular</string>
 </resources>

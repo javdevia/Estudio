@@ -295,6 +295,7 @@
         android:backgroundTint="@color/background_button"
         android:text="@string/calculate"
         android:textAllCaps="true"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
