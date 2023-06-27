@@ -34,7 +34,15 @@
             android:id="@+id/btnImcCalculator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:text="@string/imcCalculator" />
+
+        <Button
+            android:id="@+id/btnToDoApp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/todoapp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

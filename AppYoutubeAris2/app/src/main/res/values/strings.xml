@@ -15,4 +15,5 @@
     <string name="IMC_result_title">Calculadora de IMC</string>
     <string name="your_result">Tu resultado</string>
     <string name="Recalculate">Re-calcular</string>
+    <string name="todoapp">ToDoApp</string>
 </resources>

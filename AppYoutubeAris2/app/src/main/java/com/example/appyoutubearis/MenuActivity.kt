@@ -13,6 +13,7 @@ class MenuActivity : AppCompatActivity() {
         // Inicialización de botones
         val btnSaludapp = findViewById<Button>(R.id.btnSaludapp)
         val btnImcCalculator = findViewById<Button>(R.id.btnImcCalculator)
+        val btnToDoApp = findViewById<Button>(R.id.btnToDoApp)
 
         // Observadores de botones
         btnSaludapp.setOnClickListener {
@@ -25,5 +26,9 @@ class MenuActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        btnToDoApp.setOnClickListener {
+            val intent = Intent (this,ToDoAppActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
