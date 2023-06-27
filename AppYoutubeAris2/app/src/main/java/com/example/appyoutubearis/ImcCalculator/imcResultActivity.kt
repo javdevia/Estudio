@@ -1,11 +1,12 @@
-package com.example.appyoutubearis
+package com.example.appyoutubearis.ImcCalculator
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.appyoutubearis.ImcCalculatorActivity.Companion.IMC_KEY
+import com.example.appyoutubearis.ImcCalculator.ImcCalculatorActivity.Companion.IMC_KEY
+import com.example.appyoutubearis.R
 import java.text.DecimalFormat
 
 class imcResultActivity : AppCompatActivity() {

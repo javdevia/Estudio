@@ -1,4 +1,6 @@
 <resources>
+
+    <!-- IMC Calculator-->
     <string name="app_name">AppYoutubeAris</string>
     <string name="write_your_name">Escribe tu nombre</string>
     <string name="accept">Aceptar</string>
@@ -16,4 +18,13 @@
     <string name="your_result">Tu resultado</string>
     <string name="Recalculate">Re-calcular</string>
     <string name="todoapp">ToDoApp</string>
+
+    <!-- ToDoApp -->
+    <string name="ToDo_Title">Bienvenido a la App</string>
+    <string name="ToDo_categories">Categorías</string>
+    <string name="ToDo_Title">Bienvenido a la App</string>
+    <string name="ToDo_Title">Bienvenido a la App</string>
+    <string name="ToDo_Title">Bienvenido a la App</string>
+    <string name="ToDo_Title">Bienvenido a la App</string>
+
 </resources>

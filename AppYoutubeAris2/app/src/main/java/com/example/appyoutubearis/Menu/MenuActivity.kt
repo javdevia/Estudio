@@ -1,9 +1,13 @@
-package com.example.appyoutubearis
+package com.example.appyoutubearis.Menu
 
+import com.example.appyoutubearis.ImcCalculator.ImcCalculatorActivity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.appyoutubearis.SaludApp.MainActivity
+import com.example.appyoutubearis.R
+import com.example.appyoutubearis.ToDoApp.ToDoAppActivity
 
 class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +31,7 @@ class MenuActivity : AppCompatActivity() {
         }
 
         btnToDoApp.setOnClickListener {
-            val intent = Intent (this,ToDoAppActivity::class.java)
+            val intent = Intent (this, ToDoAppActivity::class.java)
             startActivity(intent)
         }
     }

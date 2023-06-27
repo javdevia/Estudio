@@ -1,10 +1,11 @@
-package com.example.appyoutubearis
+package com.example.appyoutubearis.SaludApp
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatEditText
+import com.example.appyoutubearis.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
