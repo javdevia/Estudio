@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:buttonTint="@color/todo_business_category"
-            android:text="@string/business"
+            android:text="@string/todo_business"
             android:textColor="@color/white"
             android:textStyle="bold" />
 
@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:buttonTint="@color/todo_personal_category"
-            android:text="@string/personal"
+            android:text="@string/todo_personal"
             android:textColor="@color/white"
             android:textStyle="bold" />
 
@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:buttonTint="@color/todo_other_category"
-            android:text="@string/other"
+            android:text="@string/todo_other"
             android:textColor="@color/white" />
 
     </RadioGroup>
