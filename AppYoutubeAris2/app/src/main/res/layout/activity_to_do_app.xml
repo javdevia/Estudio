@@ -17,22 +17,31 @@
         android:textAllCaps="true"
         android:textColor="@color/white"
         android:textSize="36sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:text="@string/ToDo_categories"
-        android:textAllCaps="true"
-        android:textColor="@color/todo_subtitle_text"
-        android:textSize="24sp"
-        android:textStyle="bold"/>
+        android:theme="@style/ToDoSubtitle" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCategories"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        />
+        android:layout_marginHorizontal="16dp"
+        android:text="@string/ToDo_categories"
+        android:theme="@style/ToDoSubtitle" />
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTasks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 
 </LinearLayout>
