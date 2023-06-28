@@ -15,7 +15,7 @@
         android:textColorHint="@color/white" />
 
     <RadioGroup
-        android:id="@+id/rbCategories"
+        android:id="@+id/rgNewTaskCategories"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
@@ -45,7 +45,7 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/btnCategories"
+        android:id="@+id/btnNewTaskComplete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/todo_accent"

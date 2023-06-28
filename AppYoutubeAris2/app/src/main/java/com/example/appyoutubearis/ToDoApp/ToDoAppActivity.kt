@@ -2,6 +2,10 @@ package com.example.appyoutubearis.ToDoApp
 
 import android.app.Dialog
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -33,6 +37,7 @@ class ToDoAppActivity : AppCompatActivity() {
 
     private lateinit var fabAddTask: FloatingActionButton
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_to_do_app)
@@ -45,6 +50,7 @@ class ToDoAppActivity : AppCompatActivity() {
         rvCategories = findViewById(R.id.rvCategories)
         rvTasks = findViewById(R.id.rvTasks)
         fabAddTask = findViewById(R.id.fabAddTask)
+
     }
 
     private fun initUI() {
@@ -65,8 +71,34 @@ class ToDoAppActivity : AppCompatActivity() {
     }
 
     private fun showDialog() {
-        val dialog = Dialog (this)
+        val dialog = Dialog(this)
         dialog.setContentView(R.layout.dialog_task)
+
+        val etNewTask: EditText = dialog.findViewById(R.id.etNewTask)
+        val rgNewTaskCategory: RadioGroup = dialog.findViewById(R.id.rgNewTaskCategories)
+        val btnNewTaskComplete: Button = dialog.findViewById(R.id.btnNewTaskComplete)
+
+        btnNewTaskComplete.setOnClickListener {
+            val currentTask = etNewTask.text.toString()
+            if (currentTask.isNotEmpty()) {
+                val selectedId = rgNewTaskCategory.checkedRadioButtonId
+                val selectedRadioButton: RadioButton = rgNewTaskCategory.findViewById(selectedId)
+                val currentCategory: TaskCategories = when (selectedRadioButton.text) {
+                    "@string/business" -> Business
+                    "@string/personal" -> Personal
+                    else -> Other
+                }
+
+                tasks.add(Task(etNewTask.text.toString(), currentCategory))
+                updateTasks()
+                dialog.hide()
+            }
+        }
         dialog.show()
+
+    }
+
+    private fun updateTasks() {
+        tasksAdapter.notifyDataSetChanged()
     }
 }
