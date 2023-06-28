@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="256dp"
+    android:layout_height="wrap_content"
+    android:background="@color/todo_background_todo_app"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <EditText
+        android:id="@+id/etNewTask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/todo_dialog_add_task"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <RadioGroup
+        android:id="@+id/rbCategories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/todo_business_category"
+            android:text="@string/business"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/todo_personal_category"
+            android:text="@string/personal"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/todo_other_category"
+            android:text="@string/other"
+            android:textColor="@color/white" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnCategories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/todo_accent"
+        android:text="@string/todo_add_task"
+        android:textColor="@color/white" />
+
+</LinearLayout>

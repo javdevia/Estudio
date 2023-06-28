@@ -22,5 +22,10 @@
     <!-- ToDoApp -->
     <string name="ToDo_Title">Bienvenido a la App</string>
     <string name="ToDo_categories">Categorías</string>
+    <string name="todo_dialog_add_task">Añade una tarea</string>
+    <string name="business">Negocio</string>
+    <string name="personal">Personal</string>
+    <string name="other">Otro</string>
+    <string name="todo_add_task">Agregar tarea</string>
 
 </resources>
