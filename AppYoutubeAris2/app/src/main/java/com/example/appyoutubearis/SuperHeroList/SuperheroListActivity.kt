@@ -3,6 +3,7 @@ package com.example.appyoutubearis.SuperHeroList
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.isVisible
 import com.example.appyoutubearis.databinding.ActivitySuperheroListBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -34,21 +35,25 @@ class SuperheroListActivity : AppCompatActivity() {
     }
 
     private fun searchByName(query: String) {
-        CoroutineScope(Dispatchers.IO).launch{
-        val myResponse = retrofit.create(ApiService::class.java).getSuperheroes(query)
+        binding.progressBar.isVisible = true
+        CoroutineScope(Dispatchers.IO).launch {
+            val myResponse = retrofit.create(ApiService::class.java).getSuperheroes(query)
             val response = myResponse.body()
-            if (response!=null){
+            if (response != null) {
+//Respuesta
+                runOnUiThread { binding.progressBar.isVisible = false }
             }
         }
+
 
     }
 
     private fun getRetrofit(): Retrofit {
-         return Retrofit
-             .Builder()
-             .baseUrl("https://superheroapi.com/api/10160891802034248/")
-             .addConverterFactory(GsonConverterFactory.create())
-             .build()
+        return Retrofit
+            .Builder()
+            .baseUrl("https://superheroapi.com/api/10160891802034248/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
     }
 
 }
