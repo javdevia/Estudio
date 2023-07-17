@@ -38,7 +38,6 @@ class SuperheroListActivity : AppCompatActivity() {
         val myResponse = retrofit.create(ApiService::class.java).getSuperheroes(query)
             val response = myResponse.body()
             if (response!=null){
-
             }
         }
 
