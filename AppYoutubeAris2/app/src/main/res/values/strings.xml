@@ -27,5 +27,6 @@
     <string name="todo_personal">Personal</string>
     <string name="todo_other">Otro</string>
     <string name="todo_add_task">Agregar tarea</string>
+    <string name="superherolist">Superhero List</string>
 
 </resources>

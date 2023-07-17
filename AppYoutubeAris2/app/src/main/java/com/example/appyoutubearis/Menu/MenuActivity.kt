@@ -7,6 +7,7 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.appyoutubearis.SaludApp.MainActivity
 import com.example.appyoutubearis.R
+import com.example.appyoutubearis.SuperHeroList.SuperheroListActivity
 import com.example.appyoutubearis.ToDoApp.ToDoAppActivity
 
 class MenuActivity : AppCompatActivity() {
@@ -18,6 +19,7 @@ class MenuActivity : AppCompatActivity() {
         val btnSaludapp = findViewById<Button>(R.id.btnSaludapp)
         val btnImcCalculator = findViewById<Button>(R.id.btnImcCalculator)
         val btnToDoApp = findViewById<Button>(R.id.btnToDoApp)
+        val btnSuperheroList = findViewById<Button>(R.id.btnSuperheroList)
 
         // Observadores de botones
         btnSaludapp.setOnClickListener {
@@ -32,6 +34,11 @@ class MenuActivity : AppCompatActivity() {
 
         btnToDoApp.setOnClickListener {
             val intent = Intent (this, ToDoAppActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnSuperheroList.setOnClickListener {
+            val intent = Intent (this, SuperheroListActivity::class.java)
             startActivity(intent)
         }
     }

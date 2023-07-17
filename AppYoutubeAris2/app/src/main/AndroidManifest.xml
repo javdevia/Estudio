@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,9 +15,12 @@
         android:theme="@style/Base.Theme.AppYoutubeAris"
         tools:targetApi="31">
         <activity
-            android:name=".ToDoApp.ToDoAppActivity"
-            android:theme="@style/Theme.ToDoApp"
+            android:name=".SuperHeroList.SuperheroListActivity"
             android:exported="false" />
+        <activity
+            android:name=".ToDoApp.ToDoAppActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ToDoApp" />
         <activity
             android:name=".ImcCalculator.imcResultActivity"
             android:exported="false" />
