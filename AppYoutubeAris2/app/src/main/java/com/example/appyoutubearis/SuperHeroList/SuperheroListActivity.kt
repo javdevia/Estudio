@@ -36,6 +36,7 @@ class SuperheroListActivity : AppCompatActivity() {
 
             override fun onQueryTextChange(newText: String?) = false
         })
+
         adapter = SuperheroAdapter()
         binding.rvSuperHeroList.setHasFixedSize(true)
         binding.rvSuperHeroList.layoutManager = LinearLayoutManager(this)
@@ -49,11 +50,15 @@ class SuperheroListActivity : AppCompatActivity() {
             val myResponse = retrofit.create(ApiService::class.java).getSuperheroes(query)
             val response = myResponse.body()
             if (response != null) {
-//Respuesta
-                runOnUiThread { binding.progressBar.isVisible = false }
+
+                runOnUiThread {
+                    adapter.updateList(response.superheroes)
+                    binding.progressBar.isVisible = false
+                }
             }
         }
     }
+
     private fun getRetrofit(): Retrofit {
         return Retrofit
             .Builder()
