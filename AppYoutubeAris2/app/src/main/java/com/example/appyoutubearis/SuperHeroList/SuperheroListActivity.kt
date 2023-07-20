@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.appyoutubearis.SuperHeroList.DetailSuperheroActivity.Companion.EXTRA_ID
 import com.example.appyoutubearis.databinding.ActivitySuperheroListBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -38,7 +39,7 @@ class SuperheroListActivity : AppCompatActivity() {
             override fun onQueryTextChange(newText: String?) = false
         })
 
-        adapter = SuperheroAdapter{navigateToDetail(it)}
+        adapter = SuperheroAdapter { navigateToDetail(it) }
         binding.rvSuperHeroList.setHasFixedSize(true)
         binding.rvSuperHeroList.layoutManager = LinearLayoutManager(this)
         binding.rvSuperHeroList.adapter = adapter
@@ -68,8 +69,9 @@ class SuperheroListActivity : AppCompatActivity() {
             .build()
     }
 
-    private fun navigateToDetail (id:String)
-    val intent: Intent(this, DetailSuperheroActivity::class.java)
-    intent.putExtra(EXTRA_ID,id)
-    startActivity(intent)
+    private fun navigateToDetail(id: String) {
+        val intent = Intent(this, DetailSuperheroActivity::class.java)
+        intent.putExtra(EXTRA_ID, id)
+        startActivity(intent)
+    }
 }
